@@ -40,7 +40,7 @@ const INITIAL_STATE = [
       id: uuidv4(),
       text: "Practice and thinking",
       date: new Date().toLocaleDateString(),
-      isDone: false
+      isDone: true
     },
     {
       id: uuidv4(),
