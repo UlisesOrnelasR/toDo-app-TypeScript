@@ -1,5 +1,7 @@
 import { TodoType } from "../types/ToDos";
 
+import { TiDelete } from 'react-icons/ti';
+
 
 interface Props {
   todoData: Array<TodoType>;
@@ -18,13 +20,21 @@ export const Todo = ({ todoData, deleteToDo }: Props) => {
           todoData.map((oneTodo) =>
           {
             return <li
+              className="shadow-md p-3 my-5 text-dark hover:bg-secondary hover:ease-in duration-300 hover:text-white rounded-lg flex"
               key={oneTodo.id}
             >
-              <h3>{oneTodo.text}</h3>
-              <p>{oneTodo.date}</p>
-              <button
+              <div>
+                <h3
+                className="font-bold"
+                >{oneTodo.text}</h3>
+                <p>{oneTodo.date}</p>
+              </div>
+              <div
                 onClick={() => deleteToDo(oneTodo.id)}
-              >DELETE</button>
+              className="ml-auto cursor-pointer scale-150"
+              >
+                <TiDelete/>
+              </div>
             </li>}
           )
         }

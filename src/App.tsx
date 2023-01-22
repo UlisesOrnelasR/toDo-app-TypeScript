@@ -29,8 +29,10 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <h2>ToDo list TypeScript</h2>
+    <div className="App px-8 py-16">
+      <h2
+        className="text-3xl text-center font-bold text-primary"
+      >ToDo list TypeScript</h2>
       <Form createToDo={createToDoHandler} />
       <Todo todoData={toDos} deleteToDo={deleteToDoHandler}  />
     </div>
