@@ -24,13 +24,18 @@ export const Form = ({createToDo}: Props) => {
     }
 
   return (
-      <form onSubmit={submitHandler}>
+      <form onSubmit={submitHandler}
+      className="flex flex-col items-center justify-center my-4"
+      >
           <input
               type="text"
               name="newToDoText"
               onChange={changeHandler}
+              className="border-2 border-primary rounded-lg p-2 mb-4"
           />
-          <button type="submit" disabled={!toDoText}>Create ToDo</button>
+          <button type="submit" disabled={!toDoText}
+          className="bg-primary text-white rounded-lg p-2"
+          >Create ToDo</button>
     </form>
   )
 }

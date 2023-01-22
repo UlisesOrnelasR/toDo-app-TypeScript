@@ -15,12 +15,14 @@ export const Todo = ({ todoData, deleteToDo }: Props) => {
   }
 
   return (
-    <ul>
+    <ul
+    className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+    >
         {
           todoData.map((oneTodo) =>
           {
             return <li
-              className="shadow-md p-3 my-5 text-dark hover:bg-secondary hover:ease-in duration-300 hover:text-white rounded-lg flex"
+              className="shadow-md p-3 text-dark hover:bg-secondary hover:ease-in duration-300 hover:text-white rounded-lg flex"
               key={oneTodo.id}
             >
               <div>
