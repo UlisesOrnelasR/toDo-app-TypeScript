@@ -1,17 +1,11 @@
+import { useToDoContext } from "../context/ToDoContext";
 import { TodoType } from "../types/ToDos";
-
 import { TiDelete } from 'react-icons/ti';
 
+export const Todo = () => {
 
-interface Props {
-  todoData: Array<TodoType>;
-  deleteToDo: (id: string) => void;
-  updateToDo: (id: string) => void
-}
-
-export const Todo = ({ todoData, deleteToDo, updateToDo }: Props) => {
-
-  if (todoData.length === 0) {
+  const { toDos,deleteToDoHandler,updateToDoHandler } = useToDoContext();
+  if (toDos.length === 0) {
     return <h2>Nothing to show!</h2>
   }
 
@@ -20,7 +14,7 @@ export const Todo = ({ todoData, deleteToDo, updateToDo }: Props) => {
     className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
     >
         {
-          todoData.map((oneTodo) =>
+          toDos.map((oneTodo) =>
           {
             return <li
               className="flex justify-between shadow-md p-3 text-dark hover:shadow-2xl hover:ease-in duration-300 rounded-lg"
@@ -45,14 +39,14 @@ export const Todo = ({ todoData, deleteToDo, updateToDo }: Props) => {
               className="flex flex-col items-center justify-between gap-3 w-1/3"
               >
                 <div
-                onClick={() => deleteToDo(oneTodo.id)}
+                onClick={() => deleteToDoHandler(oneTodo.id)}
               className="ml-auto cursor-pointer scale-150"
               >
                 <TiDelete/>
                 </div>
                 <button
                   className="bg-green-500 text-white rounded-md p-1 hover:bg-green-600"
-                  onClick={()=> updateToDo(oneTodo.id)}
+                  onClick={()=> updateToDoHandler(oneTodo.id)}
                 >
                   Switch status
                 </button>

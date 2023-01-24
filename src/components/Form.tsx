@@ -1,19 +1,16 @@
 import React, { useState } from "react"
+import { useToDoContext } from "../context/ToDoContext";
 
-interface Props  {
-    createToDo: (text: string) => void
-}
+export const Form = () => {
 
-
-export const Form = ({createToDo}: Props) => {
-
+    const {createToDoHandler} = useToDoContext();
     const [toDoText, setToDoText] = useState<string>("")
 
     const submitHandler = (e: React.FormEvent<HTMLFormElement>): void => {
         e.preventDefault()
         console.log("llego al submit")
         if (toDoText === "") return
-        createToDo(toDoText)
+        createToDoHandler(toDoText)
         e.currentTarget.reset()
         setToDoText("")
     }
