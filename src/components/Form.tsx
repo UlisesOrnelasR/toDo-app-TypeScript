@@ -34,7 +34,7 @@ export const Form = ({createToDo}: Props) => {
               className="border-2 border-primary rounded-lg p-2 mb-4"
           />
           <button type="submit" disabled={!toDoText}
-          className="bg-primary text-white rounded-lg p-2"
+          className="bg-primary text-white rounded-lg p-2 cursor-pointer"
           >Create ToDo</button>
     </form>
   )

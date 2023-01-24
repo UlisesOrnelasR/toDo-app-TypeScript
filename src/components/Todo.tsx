@@ -6,9 +6,10 @@ import { TiDelete } from 'react-icons/ti';
 interface Props {
   todoData: Array<TodoType>;
   deleteToDo: (id: string) => void;
+  updateToDo: (id: string) => void
 }
 
-export const Todo = ({ todoData, deleteToDo }: Props) => {
+export const Todo = ({ todoData, deleteToDo, updateToDo }: Props) => {
 
   if (todoData.length === 0) {
     return <h2>Nothing to show!</h2>
@@ -29,7 +30,9 @@ export const Todo = ({ todoData, deleteToDo }: Props) => {
                 <h3
                 className="font-bold"
                 >{oneTodo.text}</h3>
-                <p>{oneTodo.date}</p>
+                <p
+                className="text-gray-500 text-sm mb-4"
+                >{oneTodo.date}</p>
                 <span
                   className={
                     oneTodo.isDone ? "text-green-500" : "text-red-500"
@@ -39,7 +42,7 @@ export const Todo = ({ todoData, deleteToDo }: Props) => {
                 </span>
               </div>
               <div
-              className="flex flex-col items-center justify-center gap-3"
+              className="flex flex-col items-center justify-between gap-3 w-1/3"
               >
                 <div
                 onClick={() => deleteToDo(oneTodo.id)}
@@ -48,9 +51,10 @@ export const Todo = ({ todoData, deleteToDo }: Props) => {
                 <TiDelete/>
                 </div>
                 <button
-                className="bg-green-500 text-white rounded-md p-1 hover:bg-green-600"
+                  className="bg-green-500 text-white rounded-md p-1 hover:bg-green-600"
+                  onClick={()=> updateToDo(oneTodo.id)}
                 >
-                  Done
+                  Switch status
                 </button>
               </div>
             </li>}

@@ -18,12 +18,13 @@ const toDosReducer = (state: Array<TodoType>, action: ToDoAction): Array<TodoTyp
     case "delete":
       return state.filter(oneToDo => oneToDo.id !== action.payload.id)
     case "update":
-      return state.filter(oneToDo => {
-              if (oneToDo.id === action.payload.id) {
-                return oneToDo.isDone ? {...oneToDo, isDone: false} : {...oneToDo, isDone: true}
+      return state.map(oneToDo => {
+        if (oneToDo.id === action.payload.id) {
+                console.log(oneToDo.isDone)
+                return oneToDo.isDone === false ? {...oneToDo, isDone: true} : {...oneToDo, isDone: false}
               }
               return oneToDo
-            })
+        })
     default: 
       return state
   }

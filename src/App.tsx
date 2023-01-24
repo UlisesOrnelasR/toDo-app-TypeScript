@@ -28,13 +28,22 @@ function App() {
     })
   }
 
+  const updateToDoHandler = (id: string): void => {
+    dispatch({
+      type: "update",
+      payload: {
+        id: id
+      }
+    })
+  }
+
   return (
     <div className="App px-8 py-16">
       <h2
         className="text-3xl text-center font-bold text-primary"
       >ToDo list TypeScript</h2>
       <Form createToDo={createToDoHandler} />
-      <Todo todoData={toDos} deleteToDo={deleteToDoHandler}  />
+      <Todo todoData={toDos} deleteToDo={deleteToDoHandler} updateToDo={updateToDoHandler} />
     </div>
   );
 }
